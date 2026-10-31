@@ -1,1 +1,84 @@
-v
+/* ==========================================================
+   CloudNQ — style.css
+   Semua tampilan diatur di file ini.
+
+   CARA CEPAT MENGUBAH (tema dark statis):
+   - Warna    : ubah variabel di blok :root (light) dan
+                blok dark di bawahnya (--bg, --text, --btn, dll)
+   - Font     : ubah font-family di "body" (dan link Google Fonts
+                di index.html jika ganti font)
+   - Lebar    : ubah max-width pada ".page"
+   - Tombol   : ubah ".join" (tinggi, radius, warna)
+   - Baris link: ubah ".row" (tinggi, radius, border)
+   ========================================================== */
+
+:root{
+  --bg:#09090b; --surface:#111114; --text:#fafafa; --muted:#8e8e98; --line:#222227; --line-hover:#3b3b43;
+  --btn:#fafafa; --btn-ink:#09090b; --glow:rgba(110,150,255,.13); --hover:#16161a;
+  color-scheme:dark;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%;overscroll-behavior-y:none;scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(60% 420px at 50% 0,var(--glow),transparent 70%);background-repeat:no-repeat}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:14px}
+
+.page{max-width:420px;margin:0 auto;padding:0 32px 44px;min-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));min-height:calc(100svh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));display:flex;flex-direction:column}
+.top{display:flex;justify-content:flex-end;padding-top:4px;height:36px}
+
+.profile{text-align:center;padding:clamp(4px,2.5vh,24px) 0 20px}
+.avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(150deg,var(--surface),var(--bg));border:1px solid var(--line);box-shadow:0 0 0 6px var(--glow)}
+.avatar{overflow:hidden}
+.avatar svg{width:30px;height:30px}
+.avatar img{display:none;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.avatar.has-img img{display:block}
+.avatar.has-img svg{display:none}
+h1{margin:0;font-size:1.75rem;font-weight:600;letter-spacing:-.035em;line-height:1.15}
+.tag{margin:6px 0 0;color:var(--muted);font-size:.95rem;font-weight:500}
+.bio{margin:16px auto 0;color:var(--muted);font-size:.9rem;max-width:32ch;line-height:1.6}
+
+.links{display:flex;flex-direction:column}
+.join{display:flex;align-items:center;justify-content:center;gap:10px;height:50px;border-radius:12px;background:var(--btn);color:var(--btn-ink);font-weight:600;font-size:.95rem;letter-spacing:-.01em;transition:transform .2s,opacity .2s}
+.join:hover{opacity:.92;transform:translateY(-1px)}
+.join svg{width:20px;height:20px;fill:currentColor}
+.join-sub{margin:10px 0 0;text-align:center;color:var(--muted);font-size:.8rem}
+.group{margin:28px 0 10px;color:var(--muted);font-size:.8rem;font-weight:500}
+.links.no-sub .group{margin-top:36px}
+.list{display:flex;flex-direction:column;gap:8px}
+.join + .list,.join-sub + .list{margin-top:28px}
+.row{display:flex;align-items:center;gap:14px;height:52px;padding:0 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);transition:border-color .2s,background .2s}
+.row:hover{border-color:var(--line-hover);background:var(--hover)}
+.row .ico{width:20px;height:20px;color:var(--muted);flex:none;transition:color .2s}
+.row:hover .ico{color:var(--text)}
+.row .ico svg{width:20px;height:20px;display:block}
+.row .txt{flex:1;min-width:0;display:flex;align-items:baseline;gap:10px}
+.row strong{font-size:.92rem;font-weight:500}
+.row span.sub{font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .go{width:16px;height:16px;color:var(--muted);flex:none;opacity:.6;transition:transform .2s,opacity .2s}
+.row:hover .go{transform:translateX(2px);opacity:1}
+
+footer{margin-top:auto;padding-top:24px;text-align:center;color:var(--muted);font-size:.75rem;line-height:1.6}
+footer p{margin:0 auto 4px;max-width:42ch}
+
+@media (min-width:900px){
+  .page{max-width:440px;padding-bottom:32px}
+  main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:6vh}
+  .profile{padding-top:24px}
+  h1{font-size:2rem}
+  .avatar{width:80px;height:80px}
+}
+@media (max-width:380px){.page{padding-left:24px;padding-right:24px}.row span.sub{display:none}}
+@media (prefers-reduced-motion:no-preference){
+  .profile,.links{animation:in .7s cubic-bezier(.2,.7,.2,1) both}
+  .links{animation-delay:.1s}
+  @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Proteksi: blok zoom dan seleksi/copy teks */
+html{touch-action:manipulation;-webkit-text-size-adjust:100%}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+img{-webkit-user-drag:none;user-drag:none}
