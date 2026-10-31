@@ -22,9 +22,6 @@ html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%;overscroll-beha
 html::-webkit-scrollbar{display:none}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
-/* Cahaya latar di bagian bawah halaman (tetap menempel di bawah layar). Ubah kekuatan lewat --glow di :root.
-   Lapisan ini sengaja diperpanjang 200px ke bawah layar agar area di belakang toolbar Safari iPhone ikut berwarna. */
-body::before{content:"";position:fixed;left:0;right:0;bottom:-200px;height:620px;z-index:-1;pointer-events:none;background:radial-gradient(60% 420px at 50% calc(100% - 200px),var(--glow),transparent 70%)}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:14px}
 
