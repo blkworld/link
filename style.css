@@ -74,7 +74,9 @@ footer{margin-top:auto;padding-top:32px;text-align:center;color:var(--muted);fon
 footer p{margin:0 auto 4px;max-width:42ch}
 
 @media (min-width:900px){
-  .page{max-width:440px}
+  .page{max-width:440px;padding-bottom:32px}
+  main{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:6vh}
+  .profile{padding-top:24px}
   h1{font-size:2rem}
   .avatar{width:80px;height:80px}
 }
