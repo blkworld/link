@@ -59,6 +59,7 @@ h1{margin:0;font-size:1.75rem;font-weight:600;letter-spacing:-.035em;line-height
 .join svg{width:20px;height:20px;fill:currentColor}
 .join-sub{margin:10px 0 0;text-align:center;color:var(--muted);font-size:.8rem}
 .group{margin:28px 0 10px;color:var(--muted);font-size:.8rem;font-weight:500}
+.links.no-sub .group{margin-top:36px}
 .list{display:flex;flex-direction:column;gap:8px}
 .row{display:flex;align-items:center;gap:14px;height:52px;padding:0 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);transition:border-color .2s,background .2s}
 .row:hover{border-color:var(--line-hover);background:var(--hover)}

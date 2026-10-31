@@ -52,11 +52,12 @@ const CONFIG = {
     key: "discord", enabled: true,
     label: "Join Discord Community",
     sub: "Diskusi, edukasi, dan live session",
+    showSub: false,   // true = tampilkan teks kecil di bawah tombol, false = sembunyikan
     url: "https://discord.gg/your-invite"
   },
   groupLabel: "Ikuti kami",
   links: [
-    { key: "youtube",   enabled: true,  label: "YouTube",   sub: "Educational Video", url: "https://youtube.com/@cloudnq" },
+    { key: "youtube",   enabled: true,  label: "YouTube",   sub: "Trade Breakdown", url: "https://youtube.com/@cloudnq" },
     { key: "instagram", enabled: true,  label: "Instagram", sub: "Daily Update", url: "https://instagram.com/cloudnq" },
     { key: "tiktok",    enabled: false,  label: "TikTok",    sub: "Tips singkat",  url: "https://tiktok.com/@cloudnq" },
     { key: "x",         enabled: false,  label: "X",         sub: "Catatan market", url: "https://x.com/cloudnq" },
@@ -90,7 +91,7 @@ function render(){
   const p = CONFIG.primary;
   if (p.enabled) {
     html += '<a class="join" href="' + esc(p.url) + '" target="_blank" rel="noopener noreferrer">' + ICONS[p.key] + esc(p.label) + '</a>' +
-            '<p class="join-sub">' + esc(p.sub) + '</p>';
+            (p.showSub && p.sub ? '<p class="join-sub">' + esc(p.sub) + '</p>' : '');
   }
   const rows = CONFIG.links.filter(l => l.enabled).map(l =>
     '<a class="row" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' +
@@ -99,6 +100,7 @@ function render(){
   ).join("");
   if (rows) html += '<h2 class="group">' + esc(CONFIG.groupLabel) + '</h2><div class="list">' + rows + '</div>';
   $("links").innerHTML = html;
+  $("links").classList.toggle("no-sub", !(p.enabled && p.showSub && p.sub));
 }
 render();
 
