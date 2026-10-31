@@ -79,6 +79,6 @@ footer p{margin:0 auto 4px;max-width:42ch}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 /* Proteksi: blok zoom dan seleksi/copy teks */
-html{touch-action:manipulation;-webkit-text-size-adjust:100%}
+html,body{touch-action:pan-x pan-y;-webkit-text-size-adjust:100%}
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
 img{-webkit-user-drag:none;user-drag:none}

@@ -103,10 +103,17 @@ render();
 /* Proteksi: blok zoom, copy, dan klik kanan */
 (function(){
   var stop = function(e){ e.preventDefault(); };
-  ["contextmenu","copy","cut","selectstart","dragstart","gesturestart","gesturechange","gestureend"].forEach(function(t){
-    document.addEventListener(t, stop);
-  });
-  document.addEventListener("touchmove", function(e){ if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+  var opt = { passive: false };
+  ["contextmenu","copy","cut","selectstart","dragstart"].forEach(function(t){ document.addEventListener(t, stop); });
+  ["gesturestart","gesturechange","gestureend"].forEach(function(t){ document.addEventListener(t, stop, opt); });
+  document.addEventListener("touchstart", function(e){ if (e.touches.length > 1) e.preventDefault(); }, opt);
+  document.addEventListener("touchmove", function(e){ if (e.touches.length > 1 || (e.scale && e.scale !== 1)) e.preventDefault(); }, opt);
+  var last = 0;
+  document.addEventListener("touchend", function(e){
+    var now = Date.now();
+    if (now - last <= 300) e.preventDefault();
+    last = now;
+  }, opt);
 })();
 </script>
 </body>
