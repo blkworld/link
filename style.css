@@ -2,7 +2,7 @@
    CloudNQ — style.css
    Semua tampilan diatur di file ini.
 
-   CARA CEPAT MENGUBAH:
+   CARA CEPAT MENGUBAH (tema dark statis):
    - Warna    : ubah variabel di blok :root (light) dan
                 blok dark di bawahnya (--bg, --text, --btn, dll)
    - Font     : ubah font-family di "body" (dan link Google Fonts
@@ -13,20 +13,10 @@
    ========================================================== */
 
 :root{
-  --bg:#fafafa; --surface:#ffffff; --text:#09090b; --muted:#6b6b74; --line:#e6e6ea; --line-hover:#c9c9d0;
-  --btn:#09090b; --btn-ink:#fafafa; --glow:rgba(90,130,255,.10); --hover:#f3f3f5;
-  color-scheme:light;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#09090b; --surface:#111114; --text:#fafafa; --muted:#8e8e98; --line:#222227; --line-hover:#3b3b43;
-    --btn:#fafafa; --btn-ink:#09090b; --glow:rgba(110,150,255,.13); --hover:#16161a; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
   --bg:#09090b; --surface:#111114; --text:#fafafa; --muted:#8e8e98; --line:#222227; --line-hover:#3b3b43;
-  --btn:#fafafa; --btn-ink:#09090b; --glow:rgba(110,150,255,.13); --hover:#16161a; color-scheme:dark;
+  --btn:#fafafa; --btn-ink:#09090b; --glow:rgba(110,150,255,.13); --hover:#16161a;
+  color-scheme:dark;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%;overscroll-behavior-y:none;scrollbar-width:none}
 html::-webkit-scrollbar{display:none}
@@ -38,9 +28,6 @@ a{color:inherit;text-decoration:none}
 
 .page{max-width:420px;margin:0 auto;padding:0 32px 44px;min-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));min-height:calc(100svh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));display:flex;flex-direction:column}
 .top{display:flex;justify-content:flex-end;padding-top:4px;height:36px}
-.theme{width:36px;height:36px;border-radius:10px;border:0;background:transparent;color:var(--muted);display:grid;place-items:center;cursor:pointer;transition:color .2s,background .2s}
-.theme:hover{color:var(--text);background:var(--hover)}
-.theme svg{width:18px;height:18px}
 
 .profile{text-align:center;padding:clamp(4px,2.5vh,24px) 0 20px}
 .avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(150deg,var(--surface),var(--bg));border:1px solid var(--line);box-shadow:0 0 0 6px var(--glow)}
