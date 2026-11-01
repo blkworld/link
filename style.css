@@ -1,10 +1,9 @@
 /* ==========================================================
-   CloudNQ — style.css
+   FlowsNQ — style.css
    Semua tampilan diatur di file ini.
 
    CARA CEPAT MENGUBAH (tema dark statis):
-   - Warna    : ubah variabel di blok :root (light) dan
-                blok dark di bawahnya (--bg, --text, --btn, dll)
+   - Warna    : ubah variabel di blok :root (--bg, --text, --btn, dll)
    - Font     : ubah font-family di "body" (dan link Google Fonts
                 di index.html jika ganti font)
    - Lebar    : ubah max-width pada ".page"
@@ -31,15 +30,14 @@ a{color:inherit;text-decoration:none}
 .top{display:flex;justify-content:flex-end;padding-top:4px;height:36px}
 
 .profile{text-align:center;padding:clamp(4px,2.5vh,24px) 0 20px}
-.avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(150deg,var(--surface),var(--bg));border:1px solid var(--line);box-shadow:0 0 0 6px var(--glow)}
-.avatar{overflow:hidden}
+.avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(150deg,var(--surface),var(--bg));border:1px solid var(--line);box-shadow:0 0 0 6px var(--glow);overflow:hidden}
 .avatar svg{width:30px;height:30px}
 .avatar img{display:none;width:100%;height:100%;object-fit:cover;border-radius:50%}
 .avatar.has-img img{display:block}
 .avatar.has-img svg{display:none}
 
 /* Cover (opsional): taruh cover.gif / .png / .jpg / .webp / .mp4 dll. di folder yang sama dengan index.html.
-   Ubah tinggi lewat --cover-h, lebar celah di sekeliling foto lewat --cut (radius foto + celah). Tanpa file cover.png, bagian ini tidak tampil. */
+   Ubah tinggi lewat --cover-h, lebar celah di sekeliling foto lewat --cut (radius foto + celah). Tanpa file cover, bagian ini tidak tampil. */
 .profile{--cover-h:104px;--cut:41px}
 .cover{display:none;position:relative;height:var(--cover-h);-webkit-mask-image:radial-gradient(circle at 50% 100%,transparent calc(var(--cut) - 1px),#000 var(--cut));mask-image:radial-gradient(circle at 50% 100%,transparent calc(var(--cut) - 1px),#000 var(--cut));border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
 .cover img,.cover video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;opacity:0;transition:opacity .6s var(--ease)}

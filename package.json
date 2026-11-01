@@ -1,8 +1,8 @@
 {
-  "name": "cloudnq-link-in-bio",
+  "name": "flowsnq-link-in-bio",
   "version": "1.0.0",
   "private": true,
-  "description": "CloudNQ ICT Trade Community - link in bio",
+  "description": "FlowsNQ ICT Trading Community - link in bio",
   "scripts": {
     "dev": "serve . -l 3000"
   },
